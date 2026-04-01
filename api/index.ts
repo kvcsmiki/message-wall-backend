@@ -1,4 +1,4 @@
-//import { VercelRequest, VercelResponse } from '@vercel/node'
+import { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -13,7 +13,7 @@ const allowedOrigins = [
     'https://message-wall-frontend.vercel.app',
 ]
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
     const origin = req.headers.origin
 
     // --- CORS ---
